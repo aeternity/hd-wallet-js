@@ -9,7 +9,7 @@
     "build:dev": "webpack --mode=development",
     "test": "mocha --recursive --require @babel/register",
     "test:watch": "mocha --recursive --require @babel/register --watch",
-    "postinstall": "postinstall-build --only-as-dependency dist 'yarn build'"
+    "postinstall": "postinstall-build --only-as-dependency dist"
   },
   "license": "ISC",
   "dependencies": {
