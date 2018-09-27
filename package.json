@@ -1,6 +1,6 @@
 {
   "name": "@aeternity/hd-wallet",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "HD Wallet for the æternity blockchain",
   "main": "dist/wallet.js",
   "browser": "dist/wallet.browser.js",
