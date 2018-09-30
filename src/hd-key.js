@@ -45,7 +45,7 @@ export function deriveChild ({ privateKey, chainCode }, index) {
     Buffer.from(indexBuffer)
   ])
 
-  const I = hmac(data, chainCode)
+  const I = hmac(data, Buffer.from(chainCode))
   const IL = I.slice(0, 32)
   const IR = I.slice(32)
   return {
