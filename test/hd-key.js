@@ -45,11 +45,21 @@ describe('hd-key', () => {
       expect(masterKey).to.eql(testMasterKey)
     }))
 
-  describe('deriveChild', () =>
+  describe('deriveChild', () => {
     it('derives correct child key', () => {
       const childKey = deriveChild(testMasterKey, testChildIndex)
       expect(childKey).to.eql(testChildKey)
-    }))
+    })
+
+    it('derives correct child key if input buffer is ArrayBuffer', () => {
+      const arrayBufferMasterKey = {
+        privateKey: new Uint8Array(testMasterKey.privateKey).buffer,
+        chainCode: new Uint8Array(testMasterKey.chainCode).buffer
+      }
+      const arrayBufferChildKey = deriveChild(arrayBufferMasterKey, testChildIndex)
+      expect(arrayBufferChildKey).to.eql(testChildKey)
+    })
+  })
 
   describe('derivePathFromKey', () =>
     it('derives correct child key by path and key', () => {
