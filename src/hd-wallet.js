@@ -21,6 +21,10 @@ export function generateHDWallet (seed) {
   return derivePathFromSeed('m/44h/457h', seed)
 }
 
+export function generateWalletUsingDerivationPath (seed, derivationPath = 'm/44h/457h/0h/0h/0h') {
+  return getKeyPair(derivePathFromSeed(derivationPath, seed).privateKey)
+}
+
 export function getHDWalletAccounts (wallet, accountCount) {
   return (new Array(accountCount)).fill()
     .map((_, idx) =>
